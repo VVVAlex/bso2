@@ -1,0 +1,14 @@
+*.spec
+*.bat
+/Проекты
+/dist
+/dist_bso
+/ico
+/.venv
+/.vscode
+/__pycache__
+/arch
+/build
+/build_bso
+Pipfile
+
