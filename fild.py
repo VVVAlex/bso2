@@ -433,7 +433,7 @@ class Fild(ctk.CTkFrame):
 
     def size_canv(self, event=None) -> None:
         """Даёт текущую ширину и высоту холста"""
-        old_x, old_y = self.size_x, self.size_y
+        _, old_y = self.size_x, self.size_y
         self.size_x, self.size_y = self.canv.winfo_width(), self.canv.winfo_height()
         tag = ('glub', 'error', 'version', 'not_data')
         for i in tag:

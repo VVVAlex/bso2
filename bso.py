@@ -505,8 +505,7 @@ class GpsManager:
             d_ = data[4].split('.')
             sh = f"{s_[0][:-2]} {s_[0][-2:]}.{s_[1][:3]} {data[3]}"  # {0xB0:c} °
             d = f"{d_[0][:-2]} {d_[0][-2:]}.{d_[1][:3]} {data[5]}"
-        except IndexError as er:
-            # print(f'e > {er}')
+        except IndexError:
             sh = d = ''
         try:
             str_struct = time.strptime(data[0].split('.')[0] + data[8], "%H%M%S%d%m%y")
@@ -514,14 +513,12 @@ class GpsManager:
             t_sec += self.zona * 3600
             str_struct = time.localtime(t_sec)
             t = time.strftime("%d.%m.%y %H:%M:%S", str_struct)
-        except (IndexError, ValueError) as er:
-            # print(f't > {er}')
+        except (IndexError, ValueError):
             t = ''
         try:
             vs = f"{float(data[6]):=04.1f}"          # ! 05.1f
             k = f"{float(data[7]):=05.1f}"
-        except (IndexError, ValueError) as er:
-            # print(f'v > {er}')
+        except (IndexError, ValueError):
             vs = k = ''
         self.head.set_(sh, d, vs, k, t, True)       # только если излучение
         self.data_gps = (t, sh, d, vs, k)

@@ -8,7 +8,6 @@ from PIL import Image, ImageTk
 import os
 import sys
 import time
-from typing import Literal
 
 
 class CTkMessagebox(ctk.CTkToplevel):
