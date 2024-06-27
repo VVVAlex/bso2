@@ -47,7 +47,7 @@ class RF(ctk.CTkFrame):
         self.tools.grid_columnconfigure(1, weight=1)
 
         self.u_panel = Uprav(self)  # панель управления
-        self.u_panel.grid(row=1, column=0, pady=(0, 0), padx=2, sticky="nsew")
+        self.u_panel.grid(row=1, column=0, pady=(0, 2), padx=2, sticky="nsew")
 
 
 class App(ctk.CTk):
@@ -123,7 +123,7 @@ class App(ctk.CTk):
         self.board.grid_columnconfigure(0, weight=1)
 
         self.st_bar = Footer(self)                                          # строка состояния
-        self.st_bar.grid(row=2, column=0, columnspan=2, sticky="we", pady=(0, 6))
+        self.st_bar.grid(row=2, column=0, columnspan=2, sticky="we", pady=(0, 0))
         self.st_bar.grid_columnconfigure(0, weight=1)
 
         self.g_ser = PortThread(self.gps_read_data)
